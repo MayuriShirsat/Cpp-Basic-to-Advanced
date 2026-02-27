@@ -1,0 +1,90 @@
+//Hybride Inheritance(combination of multipal and multilevel)
+#include <iostream>
+using namespace std;
+
+class student
+{
+	public:
+		int seatno;
+		char nm[10];
+		void get()
+		{
+			cout<<"\n Enter your name and seat no:";
+			cin>>nm>>seatno;
+		}
+		void put()
+		{
+			cout<<"\n Name:"<<nm<<"\n Seat No:"<<seatno;
+		}
+}S;
+class exam:public student
+{
+	public:
+		int cs,ele,math;
+		void getdata()
+		{
+			seatno;
+			cout<<"\n Enter marks of CS:";
+			cin>>cs;
+			cout<<"\n Enter marks of ELE:";
+			cin>>ele;
+			cout<<"\n Enter marks of MATH:";
+			cin>>math;
+		}
+		void putdata()
+		{
+			cout<<"\n MARKS OF CS:"<<cs;
+			cout<<"\n MARKS OF ELE:"<<ele;
+			cout<<"\n MARKS OF MATH:"<<math;
+		}
+};
+class evs
+{
+	public:
+		char grade;
+		void getgrade()
+		{
+			S.seatno;
+			cout<<"\n Enter grades of enviromental science:";
+			cin>>grade;
+		}
+		void putgrade()
+		{
+			cout<<"\n Grades are:"<<grade;
+		}
+};
+class result:public evs,public exam
+{
+	public:
+		int total;
+		float per;
+
+		void display()
+		{
+			total=cs+ele+math;
+			per=total/3;
+			put();
+			putdata();
+			putgrade();
+			cout<<"\n Total is:"<<total;
+			cout<<"\n Persentage is:"<<per;
+			
+			if((cs>30)&&(ele>30)&&(math>30)||(grade=='A')||(grade=='B')||(grade=='C'))
+			{
+				cout<<"\n YOU ARE PASS";
+			}
+			else
+			{
+				cout<<"\n YOU ARE FAIL";
+			}
+		}
+}r;
+int main()
+{
+	r.get();
+	r.getdata();
+	r.getgrade();
+	
+	r.display();
+	return 0;
+}
